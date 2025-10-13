@@ -1,0 +1,44 @@
+1) What are the necessary preprocessing steps regarding:
+a) classes: This is the target or what we are trying to predict. It is important to check the balance between the target classes as the dominance of one target class over the other can cause model bias.
+We can  check class balance using techniques such as: 
+
+I. stratify in train_test_split, to preserve class ratio
+II. Resampling e.g random undersampling (to reduce majority), SMOTE or ADASYN (oversampling minority)
+
+Also, we may need to encode the target class if they are not numeric e.g. "Male", "Female" can map to 0/1
+
+b) categorical features: These are features that take limited number of  discrete values such as gender, color or location. These qualitative categories have no inherent notion of distance or order (for nominal categories), so most of machine learning algorithms cannot use them directly.
+
+To include categorical features in a model, we typically encode them into numeric form, often using one-hot encoding (dummy variables):
+
+* Each unique category becomes a new binary feature (0 or 1).
+* For a given observation, the feature corresponding to its category is 1, and all others are 0.
+
+Common ways to create dummy variables include:
+I. Label Binarizer from sklearn.preprocessing - which transforms a single categorical column into binary columns. 
+II. BinaryEncoder from  category_encoder library - which encodes categorical features as a set of binary digits.
+II. pd.get_dummies() from pandas - which converts categorical columns into dummy/indicator variables.
+
+c) continuous features/ These are features that doesn't take a limited number of values but a continuous one. It is important to check the distribution of these features as features bias can occur in the classifier
+if there are larger values than others. As result, we will need to centre their means to 0 and scale their variance to 1 using :
+I. the StandardScaler in the sklearn preprocessing library.  
+ 
+
+2) Confusion matrix:
+a)How many patient were incorrectly diagnosed with a Heart disease (false positives) : 6
+
+b)How many patient were incorrectly diagnosed as being Healthy (false negatives): 6
+
+
+3) Changing the threshold:
+a)What is the precision if we change the threshold to have a 0.95 recall ? 0.57
+
+b) How many patient were incorrectly diagnosed as being Healthy (false negatives)? 2
+
+
+
+4) Choosing an overall metric:
+
+a) If I can compute my test sample probabilities and care more about the positive class, which overall metric should I use to compare classifiers ? ROC-AUC, Precision-Recall AUC (PR AUC), Average Precision (AP)
+
+b) And if I only have the class predictions and no probabilities ? Precision, Recall, f1-Score
