@@ -27,13 +27,13 @@ I. the StandardScaler in the sklearn preprocessing library.
 2) Confusion matrix:
 a)How many patient were incorrectly diagnosed with a Heart disease (false positives) : 6
 
-b)How many patient were incorrectly diagnosed as being Healthy (false negatives): 6
+b)How many patient were incorrectly diagnosed as being Healthy (false negatives): 9
 
 
 3) Changing the threshold:
-a)What is the precision if we change the threshold to have a 0.95 recall ? 0.57
+a)What is the precision if we change the threshold to have a 0.95 recall ? 0.58
 
-b) How many patient were incorrectly diagnosed as being Healthy (false negatives)? 2
+b) How many patient were incorrectly diagnosed as being Healthy (false negatives)? 3
 
 
 
